@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="default">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
+<meta charset="ISO-8859-1">
 <title>Signup</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+	rel="stylesheet">
 </head>
-<body>
-	<div layout:fragment="content">
+<body class="text-center">
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
 		<form class="form-signin" th:action="@{/signup}" method="post">
 			<h1 class="h3 mb-3 font-weight-normal">Signup Here</h1>
 			<div th:if="${param.error}">Invalid email and password.</div>
@@ -28,5 +32,6 @@
 				In</button>
 		</form>
 	</div>
+	<div th:replace="fragments/footer :: footer" />
 </body>
 </html>

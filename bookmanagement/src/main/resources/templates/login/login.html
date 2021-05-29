@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="default">
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+<meta charset="ISO-8859-1">
 <title>Login</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body class="text-center">
-	<div layout:fragment="content">
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
 		<form class="form-signin" th:action="@{/login}" method="post">
 			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 			<div th:if="${param.error}">Invalid email and password.</div>
@@ -26,5 +29,6 @@
 				Here</button>
 		</form>
 	</div>
+	<div th:replace="fragments/footer :: footer" />
 </body>
 </html>
